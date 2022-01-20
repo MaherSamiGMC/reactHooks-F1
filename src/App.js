@@ -12,9 +12,12 @@ const [cities, setCities] = useState(data)
 const addNewCity=(x)=>{
   return setCities([...cities,x])
 }
+const filterCity=(x)=>{
+  return setCities(cities.filter(el=> el.city.toLowerCase().includes(x.toLowerCase())))
+}
   return (
     <>
-      <NavBar />
+      <NavBar filter={filterCity} />
       <AddNewCity addFunction={addNewCity} />
       <ListOfCities LOfCities={cities}  />
     </>
